@@ -42,7 +42,6 @@ export interface Price {
 	metadata?: Stripe.Metadata;
 	products?: Product;
 }
-
 export interface Product {
 	id: string;
 	active?: boolean;
@@ -50,4 +49,13 @@ export interface Product {
 	description?: string;
 	image?: string;
 	metadata?: Stripe.Metadata;
+}
+
+export interface Song {
+	id: string;
+	user_id: string;
+	author: string;
+	title: string;
+	song_path: string;
+	image_path: string;
 }
