@@ -87,6 +87,7 @@ const UploadModal: FC<UploadModalProps> = ({}) => {
 
 			router.refresh();
 			setIsLoading(false);
+			// TODO: SUCCESS NOT SHOWING UP
 			toast.success("Song Created!");
 			reset();
 			uploadModal.onClose();
