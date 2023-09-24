@@ -35,8 +35,8 @@ const LikeButton: FC<LikeButtonProps> = ({ songId }) => {
 			if (!error && data) {
 				setIsLiked(true);
 			}
-			fetchData();
 		};
+		fetchData();
 	}, [songId, supabaseClient, user?.id]);
 
 	const Icon = isLiked ? AiFillHeart : AiOutlineHeart;
@@ -55,6 +55,7 @@ const LikeButton: FC<LikeButtonProps> = ({ songId }) => {
 				toast.error(error.message);
 			} else {
 				setIsLiked(false);
+				toast.success("Removed!");
 			}
 		} else {
 			const { error } = await supabaseClient.from("liked_songs").insert({
@@ -66,6 +67,7 @@ const LikeButton: FC<LikeButtonProps> = ({ songId }) => {
 				toast.error(error.message);
 			} else {
 				setIsLiked(true);
+				toast.success("Liked!");
 			}
 		}
 		router.refresh();
