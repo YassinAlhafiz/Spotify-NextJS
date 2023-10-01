@@ -48,7 +48,7 @@ const AccountContent: FC<AccountContentProps> = ({}) => {
 			{subscription && (
 				<div className="flex flex-col gap-y-4">
 					<p>
-						You are currently on the{" "}
+						You are currently on the {/* @ts-ignore */}
 						<b>{subscription?.prices?.products?.name}</b> plan.
 					</p>
 					<Button
