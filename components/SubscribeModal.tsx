@@ -27,6 +27,7 @@ const formatPrice = (price: Price) => {
 const SubscribeModal: FC<SubscribeModalProps> = ({ products }) => {
 	// get user from hook
 	const { user, isLoading, subscription } = useUser();
+	console.log(subscription);
 	// create state for priceIdLoading
 	const [priceIdLoading, setPriceIdLoading] = useState<string>();
 	// Handle checkout function
@@ -45,14 +46,19 @@ const SubscribeModal: FC<SubscribeModalProps> = ({ products }) => {
 				url: "/api/create-checkout-session",
 				data: { price },
 			});
+			/////
 			const stripe = await getStripe();
 			stripe?.redirectToCheckout({ sessionId });
+			//////
 		} catch (error) {
 			toast.error("sss" + (error as Error)?.message);
 		} finally {
 			setPriceIdLoading(undefined);
 		}
 	};
+	/////////////////////////////////////////
+	/////////////////////////////////////////
+	/////////////////////////////////////////
 	let content = <div className="text-center">No products available</div>;
 
 	if (products.length) {

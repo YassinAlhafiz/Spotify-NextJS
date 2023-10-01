@@ -35,10 +35,10 @@ export async function POST(req: Request) {
 			subscription_data: {
 				metadata,
 			},
-			success_url: `${getURL}/account`,
-			cancel_url: `${getURL}/`,
+			success_url: `${getURL()}/account`,
+			cancel_url: `${getURL()}/`,
 		});
-		return NextResponse.json({ session: session.id });
+		return NextResponse.json({ sessionId: session.id });
 	} catch (error) {
 		console.log(error);
 		return new NextResponse("Internal Error", { status: 500 });
